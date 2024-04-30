@@ -1,0 +1,86 @@
+
+{% extends "admin_panel/admin_deshboard.html" %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style type="text/css">
+   body h2{
+      margin: 20px 0;
+   }
+   .content-table
+   {
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 20px;
+      width: 80%;
+      border-radius: 5px 5px 0 0;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+   }
+   .content-table thead tr{
+      background-color:#0A2558;
+      color: #ffffff;
+      text-align: center;
+      font-weight: bold;
+   }
+   .content-table th,
+   .content-table td{
+      padding:12px 15px;
+   }
+
+   .content-table tbody tr
+   {
+      border-bottom: 1px solid #dddddd;
+      text-align: center;
+   }
+
+   .content-table tbody tr:nth-of-type(even)
+   {
+      background-color: #f3f3f3;
+   }
+
+   .content-table tbody tr:last-of-type
+   {
+      border-bottom: 3px solid #0A2558;
+   }
+</style>
+</head>
+<body>
+         
+    <center>
+        <h2>Admin Table</h2>
+        <div>
+           <table class="content-table">
+              <thead>
+                 <tr>
+                  <th scope="col">admin_id</th>
+                  <th scope="col">admin_name </th>
+                  <th scope="col">password </th>
+                  <th scope="col">delete </th>
+               </tr>
+               </thead>
+               <tbody>
+               {% for i in admin %}
+               <tr>
+                  <td>{{i.admin_id}}</td>
+                  <td>{{i.admin_name}}</td>
+                  <td>{{i.password}}</td>
+                  <td>
+                     <p class="table_cell">
+                        <a href="/delete_admin/{{i.admin_id}}">
+                           <span class="icon"><i class="bi-x-circle-fill">delete</i></span>
+                        </a>
+                     </p>
+                  </td>
+               </tr>
+               {% endfor %}
+            </tbody>
+      </div>
+   </center>
+{% endblock body %}
+</body>
+</html>

@@ -1,0 +1,84 @@
+
+{% extends "admin_panel/admin_deshboard.html" %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style type="text/css">
+   body h2{
+      margin: 20px 0;
+   }
+   .content-table
+   {
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 20px;
+      width: 80%;
+      border-radius: 5px 5px 0 0;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+   }
+   .content-table thead tr{
+      background-color:#0A2558;
+      color: #ffffff;
+      text-align: center;
+      font-weight: bold;
+   }
+   .content-table th,
+   .content-table td{
+      padding:12px 15px;
+   }
+
+   .content-table tbody tr
+   {
+      border-bottom: 1px solid #dddddd;
+      text-align: center;
+   }
+
+   .content-table tbody tr:nth-of-type(even)
+   {
+      background-color: #f3f3f3;
+   }
+
+   .content-table tbody tr:last-of-type
+   {
+      border-bottom: 3px solid #0A2558;
+   }
+</style>
+</head>
+<body>
+         
+    <center>
+        <h2>Recycling Details</h2>
+        <div>
+           <table class="content-table">
+              <thead>
+                 <tr>
+                    <th>R_id</th>
+                    <th>R_date</th>
+                    <th>Quantity</th>
+                 </tr>
+              </thead>
+              <tbody>
+              {% for vtwork in recycling %}
+              <tr>
+                 <td>{{vtwork.r_id}}</td>
+                 <td>{{vtwork.r_date}}</td>
+                 <td>{{vtwork.quantity}}</td>               
+              </tr>
+              {% endfor %}
+              <tr>
+               <td>Total</td>
+               <td>-</td>
+               <td>{{recycle1|floatformat}} KG</td>
+              </tr>
+            </tbody>
+            </table>
+        </div>
+     </center>
+{% endblock body %}
+</body>
+</html>

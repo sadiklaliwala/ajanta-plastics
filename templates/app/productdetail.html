@@ -1,0 +1,39 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Product Detail{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-6 text-center align-self-center">
+            <img src="/media/{{product.image}}" alt="" class="img-fluid img-thumbnail">
+        </div>
+        <div class="col-sm-5 offset-sm-1">
+            <h2>{{product.product_name}}</h2>
+            <hr>
+            Material :- <p>{{product.material}}</p> <br>
+            Capacity :- <p>{{product.product_quantity}}</p><br>
+            Weight :-<p>{{product.product_weight}}</p> <br>
+            Color :-<p>{{product.product_color}}</p> <br>
+            <h5 class="mb-0 mt-2"><span class="text-muted me-2"><del class="font-size-16 fw-normal">
+                        ₹{{product.product_price}} <br>
+
+                    </del>
+                    <h4>₹{{discount}}</h4> <br>
+
+                    <form action="/add-to-cart" class="d-inline">
+                        <input type="hidden" name="pro_id" value="{{product.product_id}}" id="prod_id">
+                        <button type="submit" class="btn btn-primary shadow px-5 py-2">Add to Cart</button>
+                    </form>
+                    <!-- <a href="{% url 'add-to-cart' %}" class="btn btn-primary shadow px-5 py-2">Add to Cart</a> -->
+                    <a href="{% url 'buy-now' product.product_id %}" class="btn btn-danger shadow px-5 py-2 ms-4">Buy Now</a>
+                    <h5 class="mt-5">Available Offers</h5>
+                    Start At {{product.offer.start_date}}
+                    <ul>
+                        <li>We offer {{product.offer.p_discount}}% Unlimited Cashback on Flipkart Axis Bank Credit
+                        </li>
+                        <li>{{product.offer.description}} (price inclusive of discount) <br>Ends At  {{product.offer.end_date}}</li>
+                    </ul>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

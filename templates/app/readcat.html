@@ -1,0 +1,49 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+
+
+<br>
+<div class="hii">
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-sm-3">
+        <h3 align="center" class="f">Category</h3>
+        <ul class="list-group">
+          {% for i in category %}
+          <a href="{% url 'readcat' i.category_id %}" class="list-group-item list-group-item-action "
+            aria-current="true">
+            {{i.category_name}}
+          </a>
+          {% endfor %}
+        </ul>
+        <br>
+      </div>
+      <br>
+      <br>
+      <div class="col-sm-8">
+        <div class="row">
+          {% for i in product %}
+          <div class="col-sm-6 text-center mb-4">
+            <a href="{% url 'product-detail' i.product_id %}" class="btn">
+              <div class="item img-hover">
+                <img src="/media/{{i.image}}" alt="" height="300" class="">
+                <br>
+                <br>
+                <h4>{{i.category.category_name}}</h4>
+                <h4>{{i.product_name}}</h4>
+                <h4>&#8377;{{i.product_price}}</h4>
+              </div>
+            </a>  
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+{% endblock main-content %}

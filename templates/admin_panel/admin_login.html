@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'login.css'%}">
+</head>
+<body>
+    <div class="container">
+        <div class="title">Admin Sign In</div>
+        <form method="POST" action="{% url "admin_login" %}" >
+            {% csrf_token %}
+            <div class="user-details">
+                <div class="input-box">
+                    {% if messages %}
+        {% for msg in messages %}
+          <center><h3 class="error">{{msg}}</h3></center>
+        {% endfor %}
+        {% endif %}         <span class="details">User Name </span>
+                    <input name="username"  type="text" placeholder="Enter Your Name or Username" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Password</span>
+                    <input name="password" type="password" placeholder="Enter Your Password" required>
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Login">
+            </div>
+            <!-- <div class="instruct">
+                Do Not Have An Account? <a href="/registration">Create Account</a>
+            </div> -->
+
+        </form>
+    </div>
+</body>
+</html>

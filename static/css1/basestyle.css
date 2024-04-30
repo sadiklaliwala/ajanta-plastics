@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    min-height: 100vh;
+    width: 100%;
+}
+.sidebar{
+    position:fixed;
+    height: 100%;
+    width: 240px;
+    background: #0A2558;
+}
+
+.sidebar .logo-details
+{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .logo-details .logo_name
+{
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+    margin-left: 50px;
+}
+
+.sidebar .nav-links
+{
+    margin-top: 16px;
+    overflow-y: scroll;
+    position: relative;
+    height: 516px;
+}
+
+.sidebar .nav-links li{
+    height: 40px;
+    width:100%;
+    list-style: none;
+}
+
+.sidebar .nav-links li a
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+.sidebar .nav-links li a:hover{
+    background: #081D45;
+}
+
+.sidebar .nav-links li a .link_name
+{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    margin-left:50px;
+}
+
+.home-section{
+    background: #f5f5f5;
+    position: relative;
+    min-height: 100vh;
+    width: calc(100% - 240px);
+    left:240px;
+}
+
+.home-section nav{
+    position: fixed;
+    width: calc(100% - 240px);
+    left: 240px;
+    height: 80px;
+    background: #fff;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-section nav .sidebar-button
+{
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.home-section nav .search-box
+{
+    height:50px ;
+    width: 550px;
+    margin: 0 20px;
+    position: relative;
+}
+
+nav .search-box input
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    padding: 0 15px;
+    font-size: 17px;
+    background: #F5F6FA;
+    border: 2px solid #EFEEF1;
+    outline: none;
+}
+
+nav .search-box .bx-search
+{
+        position: absolute;
+        right:5px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 40px;
+        width: 40px;
+        background: #2697FF;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 22px;
+        line-height: 40px;
+        text-align: center;
+}
+.home-section nav .profile-details
+{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    min-width: 100px;
+    background: #F5F6FA;
+    border: 2px solid #EFEEF1;
+    border-radius: 6px;
+    padding: 0 15px 0 2px;
+}
+
+nav .profile-details img
+{
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+nav .profile-details .admin_name
+{
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    margin: 0 10px;
+    white-space: nowrap;
+}
+
+nav .profile-details i{
+    color: #333;
+    font-size: 25px;
+}

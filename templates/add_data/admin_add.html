@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - HNJ Films</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="{% static 'admin-style.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/add-form.css' %}">
+    
+</head>
+
+<body>
+
+    <div class="service-form-container">
+        <form action=" {% url 'admin_add' %} " method="POST" name="myform">
+            {% csrf_token %}
+            <h2 class="form-title">admin Add </h2>
+            <div class="form-content">
+                <div class="input-box">
+                    <label for="name">NAME</label>
+                    <input type="text" placeholder="Enter User Name" name='admin_name' required>
+                </div>
+                <div class="input-box">
+                    <label for="name">Password</label>
+                    <input type="password" placeholder=" Enter Password" name='password' required>
+                </div>
+
+                <div class="button-container">
+                    <button type="submit" name="submit">ADD</button>
+
+                </div>
+        </form>
+        {% if msg %}
+        {{msg}}
+        {% endif %}
+
+    </div>
+
+    </div>
+
+    </div>
+    <!-- =========== Scripts =========  -->
+    <script src="{% static 'webjs/admin.js' %}"></script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+{% extends "customer_logreg/headfoot.html" %}
+{% load static %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        section
+{
+    padding: 2rem 9%;
+}
+
+section:nth-child(even)
+{
+    background: #eee;
+}
+
+.btn
+{
+    margin-top: 1rem;
+    display:flex;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--black);
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: .8rem 3rem;
+    width: 70%;
+}
+
+.btn:hover
+{
+    background: var(--green);
+    letter-spacing: .1rem;
+}
+
+.home .home-slider .slide{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15rem;
+    padding-top: 5rem;
+}
+
+.home .home-slider .slide .content span
+{
+    color: var(--green);
+    font-size: 1.7rem;
+}
+</style>
+</head>
+<body>
+    <form action="" id="search-form">
+        <input type="search" placeholder="search here..." name="" id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+        <i class="fas fa-times" id="close"></i>
+    </form>
+
+    <section class="home" id="home">
+
+        <div class="home-slider">
+
+            <div class="wrapper">
+                <div class="slide">
+                    <div class="content">
+                        <span>Best Quality Plastic Products</span>
+                        <a href="#" class="btn">Shop Now</a>
+                    </div>
+                    <div class="image">
+                        <img src="{% static 'images/products.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    {% endblock body %}
+</body>
+</html>

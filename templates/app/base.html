@@ -1,0 +1,185 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!--Owl Carousel CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css' %}">
+
+    <!--FontAwesome CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/all.min.css' %}">
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .foot
+        {
+            position:relative;
+            left:0;
+            bottom:0;
+            width:100%;
+        }
+    </style>
+
+    <title>Ajanta | {% block title %} {% endblock title %} </title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: blue">
+     <div class="container">
+       {% comment %} <a class="navbar-brand" href="{% url 'adminpanel' %}">Admin </a> {% endcomment %}
+       <a class="navbar-brand" style="color:black;font-weight:bold;font-size:30px;" href="/">AjantaPlastics</a>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+             <a class="nav-link active" aria-current="page" href="/">Home</a>
+           </li>
+          <li class="nav-item ">
+             <a class="nav-link  text-white"href="{% url 'cat' %}"  aria-expanded="false">
+               Product
+             </a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'aboutus'%}">About us</a>
+          </li>
+         </ul>
+
+         <form class="d-flex" method="GET">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-warning" type="submit">S</button>
+        </form>
+         <div>
+          
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           <li class="nav-item dropdown mx-2">
+            {% if user %}
+            <a class="nav-link dropdown-toggle text-white" href="" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{user.customer_fname}}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                 {% comment %} <li><a class="dropdown-item" href="{% url "update_customer/" %}">Profile</a></li>  {% endcomment %}
+                <li><a class="dropdown-item" href="{% url 'orders' %}">Orders</a></li>
+{% comment %}                 
+                <li class="nav-item mx-2">
+                  <a href="{% url 'logout'%}" class="nav-link text-white">Logout</a>
+                  </li> {% endcomment %}
+              </ul>
+            </li>
+            
+            <li class="nav-item mx-2">
+             <a href="{% url 'sc' %}" class="nav-link text-white"><span class="badge bg-danger"></span> Cart </a>
+            </li>
+            
+            <li class="nav-item mx-2">
+              <a href="{% url 'logout'%}" class="nav-link text-white">Logout</a>
+              </li>
+            {% else %} 
+            <li class="nav-item mx-2">
+             <a href="{% url 'login' %}" class="nav-link text-white">Login</a>
+            </li>
+            <li class="nav-item mx-2">
+             <a href="{% url 'customerregistration1' %}" class="nav-link text-white">Registration</a>
+            </li>
+            {% endif %}
+          </ul>
+         </div>
+       </div>
+     </div>
+    </nav>
+    {% block banner_slider %} {% endblock banner_slider %}
+    {% block livesale %} {% endblock livesale %}
+    {% block main-content %} {% endblock main-content %}
+
+    <!-- Start Footer -->
+    <div class="foot">
+      <footer class="bg-primary text-white pt-3 pb-2">
+       <div class="container text-center text-md-left">
+           <div class="row text-center text-md-left">
+               <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-4">
+                   <h5 class="text-uppercase mb-4 font-weight-bold text-warning">ABOUT COMPANY</h5>
+                   <h6>The One and Only goal is to make best quality plastic products.</h6>
+                      <h6>Focused on Customer Satisfaction, it ensures a seamless shopping experience.</h6> 
+                       <h6>Try Something new with us.</h6>
+               </div>
+               
+   
+               <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mt-4">
+                   <h5 class="text-uppercase mb-4 font-weight-bold text-warning">QUICK LINKS</h5>
+                   <p>
+                       <a href="#" class="text-white" style="text-decoration: none;">Categories</a>
+                   </p>
+                   <p>
+                       <a href="#" class="text-white" style="text-decoration: none;">About Us</a>
+                   </p>
+                   <p>
+                       <a href="#" class="text-white" style="text-decoration: none;">Contact Us</a>
+                   </p>
+               </div>
+   
+               <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-4">
+                   <h5 class="text-uppercase mb-4 font-weight-bold text-warning">CONTACT US</h5>
+                   <p>
+                       <i class="fas fa-home mr-3"></i> 141, Banner Industrial Estate, Opp. Soma textiles Mill, Rakhial Ahmedabad-23.
+                   </p>
+                   <p>
+                       <i class="fas fa-envelope mr-3"></i> ajantaplastic141@gmail.com
+                   </p>
+                   <p>
+                       <i class="fas fa-phone mr-3"></i> +92 8745904563
+                   </p>
+               </div>
+           </div>
+           <hr class="mb-4">
+           <div class="row align-items-center">
+               <div class="col-md-7 col-lg-8">
+                   <p> Copyright ©2024 All rights reserved by : 
+                       <a href="#" style="text-decoration: none;">
+                           <strong class="text-warning">AjantaPlastics</strong>
+                       </a>
+                   </p>
+               </div>
+               <div class="col-md-5 col-lg-4">
+                   <div class="text-center text-md-right">
+                       <ul class="list-unstyled list-inline">
+                           <li class="list-inline-item">
+                               <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+                           </li>
+                           <li class="list-inline-item">
+                               <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+                           </li>
+                           <li class="list-inline-item">
+                               <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-linkedin"></i></a>
+                           </li>
+                           <li class="list-inline-item">
+                               <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-instagram"></i></a>
+                           </li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </footer>
+   </div>
+    <!-- End Footer -->
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'app/js/all.min.js' %}"></script>
+    <script src="{% static 'app/js/myscript.js' %}"></script>
+  </body>
+</html>

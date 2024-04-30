@@ -1,0 +1,488 @@
+.pad
+{
+    float: left;
+    width: 20%;
+    text-align: right;
+    margin-left: 2%;
+}
+.pad1
+{
+    float: left;
+    width: 77%;
+    margin-top: 1%;
+    padding: auto;
+    margin-left: 1%;
+}
+.logo img
+{
+    height: 48px;
+    width: auto;
+}
+.wepper ul li{
+    width: 11%;
+    float: left;
+    list-style-type: none;
+    text-align: left;
+    margin-left: 2%;  
+}
+.wepper a{
+    text-align: center;
+    text-decoration: none;
+    color: rgb(41, 40, 40);
+    font-size: 20px;
+    width: 14%;
+    float: left;
+}
+.clr
+{
+    clear: both;
+}
+.wepper
+{
+    margin-top: 2%;
+}
+.pad3 img
+{
+    float: left;
+    width: 20%;
+    margin: 1%;
+    width: 277.29px;
+}
+.pad3
+{
+    margin-top: 5%;
+}
+.one
+{
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 17%;
+    font-size: 28px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+.two
+{
+    position: absolute;
+    margin-left: 33.5%;
+    margin-top: 17%;
+    font-size: 28px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+.three
+{
+    position: absolute;
+    margin-left: 52.5%;
+    margin-top: 17%;
+    font-size: 28px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+.four
+{
+    position: absolute;
+    margin-left: 74.5%;
+    margin-top: 17%;
+    font-size: 28px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+.pad4 img{
+    float: left;
+    width: 33%;
+    margin-top: 5%;
+}
+.conimg1
+{
+    height: 400px;
+    width: 100%;
+    background-image: url(image/contact1img.png);
+    margin-top: 2%;
+}
+.about
+{
+    float: left;
+    width: 42%;
+    margin: auto;
+    margin-top: 3%;
+}
+.fnt
+{
+    color: #191919;
+    font-size: 45px;
+    padding-bottom: 20px;
+    position: relative;
+    margin-bottom: 50px;
+    margin-left: 15%;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-top: 8%;
+}
+.fnt p
+{
+    font-size: 20px;
+    font-weight: lighter;
+    margin-top: 10%;
+    line-height: 140%;
+    color: #252525;
+}
+
+.about1
+{
+    width: 30%;
+    float: left;
+    margin-top: 4%;
+  
+    padding: 1%;
+
+}
+.aa
+{
+    float:left;
+    width:100px;
+}
+.d1
+{
+    margin-top: 40px;
+    margin-left: 117px;
+}
+.wapper{
+    width: 88%;
+    margin: auto;
+    margin-bottom: 5%;
+}
+.bg
+{
+    background-color: gainsboro;
+    height: 240px;
+}
+.footer
+{
+    display: block;
+
+}
+.fpad
+{
+    float: left;
+    margin: auto;
+    width: 20%;
+    margin-top: 2%;
+}
+.fname
+{
+    font-size: 29px;
+    margin-top: 5%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.fpad img{
+    height: 48px;
+    width: auto;
+    margin-top: 4%;
+}
+.fadd
+{
+    margin-top: 19%;
+  font-size: 22px;  
+  line-height: 10px;
+}
+.ff
+{
+    float: left;
+    display: inline;
+    padding-left: 4%;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 2.5%;
+
+}
+.ff a
+{
+    text-decoration: none;
+    color: white;
+}
+.fadd a
+{
+    text-decoration: none;
+    color: white;  
+}
+.ff a:hover
+{
+    color: #000000;  
+}
+.ship
+{
+    float: left;
+    margin: auto;
+    width: 22%;
+    margin-top: 5px;
+    margin-left: 1%;
+}
+.bgship
+{
+    height: 190px;
+    width: 100%;
+    background-image: url(image/bg-image-3.jpg);
+}
+.s
+{
+    float: left;
+    margin: auto;
+    margin-top: 20%;
+}
+.flot
+{
+    float: left;
+    margin: auto;
+    width: 30%;
+    margin-top: 5%;
+    font-family: sans-serif;
+}
+.ic
+{
+    float: left;
+    margin: auto;
+    margin-left: 7%;
+}
+.ic img
+{
+    width: 85px;
+}
+.poli
+{
+    float: left;
+    margin: auto;
+    width: 30%;
+    margin-top: 5%;
+}
+.ic p{
+    margin-top: 7px;
+}
+.shopimg
+{
+    width:100%;
+    height: 350px;
+    color: white;
+    background-image: url(image/shopbgimg.jpg);
+    background-position: right;
+    margin-top: 2%;
+}
+.head
+{
+    font-family: fantasy;
+    font-size: 45px;
+    padding-top: 100px;
+}
+.sp1
+{
+    float: left;
+    width: 25%;
+    border: 1px solid black;
+}
+.sp2
+{
+    float: left;
+    width: 70%;
+    margin: 1%;
+}
+.si
+{
+    float: left;
+    width: 30%;
+    margin: 4px;
+    border: 1px solid black;
+}
+.si img
+{
+    width: 252px;
+}
+.ss
+{
+    font-size: 24px;
+    text-align: center;
+    font-family: sans-serif;
+}
+.si p
+{
+    font-size: 15px;
+    text-align: center;
+    font-family: sans-serif;
+}
+.pd{
+    float: left;
+    width: 42%;
+    margin: auto;
+    margin-left: 4%;
+}
+.pd img
+{
+    width: 555px;
+    height: 279.58px;
+}
+.d
+{
+    font-size: 18px;
+    color: #524e4e;
+}
+.desc
+{
+    float: left;
+    margin: auto;
+    font-size: 25px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 1%;
+}
+
+.reg
+{
+    float: left;
+    width: 47%;
+    margin-left: 2%;
+    padding: 7px;
+    
+}
+.reg p{
+    font-size: 36px;
+    font-weight: 600;
+    font-family: revert;
+}
+.reg form
+{
+    border: 1px solid #bebebe;
+    padding: 5%;
+    margin-top: 6%;
+    border-radius: 3px;
+    font-size: 18px ;
+}
+.hm{
+    float: left;
+    width: 40%;
+    margin: auto;
+    padding-left: 5%;
+    margin-top: 2%;
+}
+.hm img
+{
+    margin-top: 23%;
+}
+.f
+{
+    background: #191448 !important;
+    height: 360PX;
+    color: white;
+    /* background-image: url(image/f.jpg);
+    background-position: center left; */
+}
+.ab
+{
+    width: 30%;
+    float: left;
+    margin-left: 2%;
+}
+.abi img
+{
+    width: 310px;
+    object-fit: cover;
+    margin-left: 11%;
+    border-radius: 50%;
+    border: 13px solid #e7e7e7;
+    margin-top: 27%;
+    margin-bottom: 31%;
+}
+.aboutfont
+{
+    padding: 15px;
+    margin-bottom: 23%;
+}
+.aboutfont:hover
+{
+    border: 5px solid rgb(76, 56, 255);
+    box-shadow: 0px 0px 13px  rgb(76, 56, 255);
+    border-radius: 3px;
+}
+.abi img:hover
+{
+    border-color: rgba(76, 56, 255, 0.808);
+    transform: scale(1.2) ;
+    transition: ease-in-out 0.5s;
+    
+}
+.sa
+{
+    float: left;
+    margin: auto;
+    margin-bottom: 4%;
+    margin-left: 1%;
+}
+.service
+{
+    float: left;
+    width: 45%;
+    margin: auto;
+    margin-left: 2%;
+    margin-top: 6%;
+}
+.fnt1
+{
+    float: left;
+    margin: auto;
+    padding: 11px;
+    font-size: 45px;
+    font-family: revert;
+    color: #00529E;
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 2%;
+}
+.service p
+{
+    font-size: 21px;
+    line-height: 170%;
+    letter-spacing: 1px;
+    text-align: justify;
+}
+.brand
+{
+    float: left;
+    width: 23%;
+    margin: auto;
+    margin-bottom: 4%;
+}
+.delbtn{
+    text-decoration: none;
+    color: black;
+}
+.delbtn :hover
+{
+    color: red;
+}
+.adminadd
+{
+    border: 1px solid rgb(43, 43, 43);width: 30%;text-align: center;margin-left: 34%;font-size: 23px;padding: 2%;margin-top: 5%;margin-bottom: 5%;
+    border-radius: 15px;
+}
+.adminadd p a{
+    text-decoration: none;
+    color: #000000;
+}
+.adminadd p a:hover
+{
+    color: red;
+}
+.pad11
+{
+    margin-left: 17%;
+}
+.d1 li:hover
+{
+    border: 1px solid white;
+    border-radius: 50px;
+    color: white;
+    /* margin-left: 0%; */
+    background-color: white;
+    width: 241px;
+}
+.dc ul li
+{
+    color: #000000;
+}

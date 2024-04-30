@@ -1,0 +1,96 @@
+
+{% extends "admin_panel/admin_deshboard.html" %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style type="text/css">
+      body h2{
+         margin: 20px 0;
+      }
+      .content-table
+      {
+         table-layout: fixed;
+         border-collapse: collapse;
+         margin: 20px 0;
+         font-size: 20px;
+         width: 95%;
+         border-radius: 5px 5px 0 0;
+         overflow: hidden;
+         box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      }
+      .content-table thead tr{
+         background-color:#0A2558;
+         color: #ffffff;
+         text-align: center;
+         font-weight: bold;
+      }
+      .content-table th,
+      .content-table td{
+         text-overflow: ellipsis;
+         word-wrap: break-word;
+         padding:12px 15px;
+      }
+   
+      .content-table tbody tr
+      {
+         border-bottom: 1px solid #dddddd;
+         text-align: center;
+      }
+   
+      .content-table tbody tr:nth-of-type(even)
+      {
+         background-color: #f3f3f3;
+      }
+   
+      .content-table tbody tr:last-of-type
+      {
+         border-bottom: 3px solid #0A2558;
+      }
+   </style>
+</head>
+<body>
+   <center>
+        <h2>Customer Details</h2>
+        <div>
+         <table class="content-table">
+            <thead>
+               <tr>
+                    <th>Customer_id </th>
+                    <th>Customer_fname</th>
+                    <th>Customer_lname</th>
+                    <th>Contact_number</th>
+                    <th>Customer_gender</th>
+                    <th>Customer_dob</th>
+                    <th>Customer_email</th>
+                    <th>Customer_password</th>
+                    <th>Address</th>
+                    <th>Customer_pincode</th>
+                 </tr>
+               </thead>
+                 <tbody>
+                 {% for vtwork in customer %}
+                 <tr>
+                    <td>{{vtwork.customer_id}}</td>
+                    <td>{{vtwork.customer_fname}}</td>
+                    <td>{{vtwork.customer_lname}}</td>
+                    <td>{{vtwork.contact_number}}</td>
+                    <td>{{vtwork.customer_gender}}</td>
+                    <td>{{vtwork.customer_dob}}</td>
+                    <td>{{vtwork.customer_email}}</td>
+                    <td>{{vtwork.customer_password}}</td>
+                    <td>{{vtwork.address}}</td>
+                    <td>{{vtwork.customer_pincode}}</td>
+                 </tr>
+                 {% endfor %}
+               </tbody>
+               </table>
+               
+        </div>
+     </center>
+{% endblock body %}
+</body>
+</html>

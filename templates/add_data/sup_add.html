@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - HNJ Films</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="{% static 'admin-style.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/add-form.css' %}">
+    <!-- <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet"> -->
+</head>
+
+<body>
+
+    <div class="service-form-container">
+        <form action=" {% url 'sup_add' %} " method="POST" name="myform">
+            {% csrf_token %}
+            <h2 class="form-title">Supplier Add </h2>
+            <div class="form-content">
+                <div class="input-box">
+                    <label for="name">NAME</label>
+                    <input type="text" placeholder="ENTER COURSE NAME" name='s_name' required>
+                </div>
+                <div class="input-box">
+                    <label for="name">Contact Number</label>
+                    <input type="number" placeholder=" Contact Number" name='s_con' required>
+                </div>
+                <div class="input-box">
+                    <label for="name">Supplier Address</label>
+                    <textarea name='s_add' id="" cols="38" rows="8" placeholder="Supplier Address" required></textarea>
+                    <!-- <input type="text" placeholder="ENTER COURSE DESCRIPTION" name='course_desc' required>  -->
+                </div>
+                <div class="input-box">
+                    <label for="name">Enter email</label>
+                    <input type="email" placeholder="ENTER email" name='s_email'>
+                </div>
+
+                <div class="button-container">
+                    <button type="submit" name="submit">ADD</button>
+
+                </div>
+
+        </form>
+
+    </div>
+
+    </div>
+
+    </div>
+    <!-- =========== Scripts =========  -->
+    <script src="{% static 'webjs/admin.js' %}"></script>
+
+
+
+
+</body>
+
+</html>

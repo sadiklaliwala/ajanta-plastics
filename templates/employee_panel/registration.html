@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'registration.css'%}">
+    <script type="text/javascript">
+        function validateform(){
+
+            var firstname=document.frm1.fname.value;
+            var lastname=document.frm1.lname.value;
+            var date=document.frm1.dob.value;
+            var no=document.frm1.number.value;
+            var address=document.frm1.add.value;
+            var pincode=document.frm1.pin.value;
+            var email=document.frm1.email.value;
+            var fpass= document.frm1.pass.value;
+            var spass=document.frm1.pass2.value;
+
+            if(firstname==null || firstname==""){
+                alert("Firstname can't be blank.");
+                return false;
+            }
+
+            if(lastname==null || lastname==""){
+                alert("lastname can't be blank.");
+                return false;
+            }
+            
+            if(date==null){
+                console.log("Please enter date of birth.");
+                return false;
+            }
+
+            if(no==null || no<=9){
+                alert("please enter 10 digit mobile number.");
+                return false;
+            }
+
+            if(address==null || address==""){
+                alert("Address can't be blank.");
+                return false;
+            }
+
+            if(pin.length==6){
+                alert("please enter 6 digit pincode.");
+                return false;
+            }
+
+            if(email=="" || !email.includes('@')){
+                alert("please enter a valid email address.");
+                return false;
+            }
+
+            if(fpass==spass){
+                
+                return true;
+            }
+            else{
+                alert("password must be same");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Registration</div>
+        <form action="#" name="frm1" onsubmit="return validateform()">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">First Name</span>
+                    <input type="text" placeholder="Enter Your First Name" name="fname" >
+                </div>
+                <div class="input-box">
+                    <span class="details">Last Name</span>
+                    <input type="text" placeholder="Enter Your Last Name" name="lname" >
+                </div>
+                <div class="input-box">
+                    <span class="details">Birth Date</span>
+                    <input type="date" placeholder="Enter Your Birth Date" name="dob" >
+                </div>
+                <div class="input-box">
+                    <span class="details">Mobile Number</span>
+                    <input type="number" placeholder="Enter Your Mobile Number" name="number" pattern="[0-9]{10}" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Address</span>
+                    <input type="text" placeholder="Enter Your Address" name="add" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Pincode</span>
+                    <input type="number" placeholder="Enter Pincode" name="pin" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">E-Mail</span>
+                    <input type="email" placeholder="Enter Your E-Mail" name="email" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Password</span>
+                    <input type="text" placeholder="Enter Password" name="pass" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Confirm Password</span>
+                    <input type="text" placeholder="Confirm Password" name="pass2" required>
+                </div>
+            </div>
+            <div class="gender-details">
+                <input type="radio" name="gender" id="dot-1">
+                <input type="radio" name="gender" id="dot-2">
+                <input type="radio" name="gender" id="dot-3">
+                <span class="gender-title">Gender</span>
+                <div class="category">
+                    <label for="dot-1">
+                       <span class="dot one"></span>
+                        <spaan class="gender">Male</spaan>
+                    </label>
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        <spaan class="gender">Female</spaan>
+                    </label>
+                    <label for="dot-3">
+                        <span class="dot three"></span>
+                        <spaan class="gender">Other</spaan>
+                    </label>
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Register">
+            </div>
+            <div class="instruct">
+                Already Have An Account? <a href="/login">Login Now</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

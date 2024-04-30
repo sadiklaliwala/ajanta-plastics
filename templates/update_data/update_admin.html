@@ -1,0 +1,57 @@
+{% extends "admin_panel/admin_deshboard.html" %}
+{% block body %}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - HNJ Films</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="{% static 'admin-style.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/add-form.css' %}">
+
+</head>
+
+<body>
+
+    <div class="service-form-container">
+        <form method="POST" name="myform">
+            {% csrf_token %}
+            <h2 class="form-title">Change Username or Password </h2>
+            <div class="form-content">
+                <div class="input-box">
+                    <label for="name">NAME</label>
+                    <input type="text" value="{{admn_object.admin_name}}" name='admin_name' required>
+                </div>
+                <div class="input-box">
+                    <label for="name">Password</label>
+                    <input type="password" value="{{admn_object.password}}" name='password' required>
+                </div>
+
+                <div class="button-container">
+                    <button onclick="confirm('Profile Updated')" type="submit" name="submit">Update</button>
+                </div>
+        </form>
+        {% if msg %}
+        {{msg}}
+        {% endif %}
+
+    </div>
+
+    </div>
+
+    </div>
+    <!-- =========== Scripts =========  -->
+    <script src="{% static 'webjs/admin.js' %}"></script>
+
+
+
+
+</body>
+
+</html>
+{% endblock body %}

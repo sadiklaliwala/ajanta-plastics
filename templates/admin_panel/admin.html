@@ -1,0 +1,594 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        body{
+            min-height: 100vh;
+            width: 100%;
+        }
+        .sidebar{
+            position:fixed;
+            height: 100%;
+            width: 240px;
+            background: #0A2558;
+            transition: all 0.5s ease;
+        }
+        
+        .sidebar.active
+        {
+            width: 80px;
+        }
+        
+        .sidebar .logo-details
+        {
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sidebar .logo-details img
+        {
+            object-fit: contain;
+            width: 50px;
+            margin-left: 15px;
+            border-radius: 50%;
+        }
+        
+        .sidebar .logo-details .logo_name
+        {
+            font-size: 24px;
+            font-weight: 500;
+            color: #fff;
+            margin-left: 16px;
+        }
+        
+        .sidebar .nav-links
+        {
+            margin-top: 16px;
+            overflow-y:scroll;
+            position: relative;
+            height: 561px;
+            overflow-x: hidden;
+        }
+        
+        .sidebar .nav-links li{
+            height: 50px;
+            width:100%;
+            list-style: none;
+        }
+        
+        .sidebar .nav-links li a
+        {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+        
+        .sidebar .nav-links li a img
+        {
+            object-fit: contain;
+            width: 33px;
+            margin-left: 15px;
+        }
+        
+        .sidebar .nav-links li a:hover{
+            background: #081D45;
+        }
+        
+        .sidebar .nav-links li a .link_name
+        {
+            color: #fff;
+            font-size: 21px;
+            font-weight: 400;
+            margin-left:15px;
+            white-space: nowrap;
+        }
+        
+        .home-section{
+            background: #f5f5f5;
+            position: relative;
+            min-height: 100vh;
+            width: calc(100% - 240px);
+            left:240px;
+            transition: all 0.5s ease;
+        }
+        
+        .sidebar.active ~ .home-section{
+            width: calc(100% - 80px);
+            left:80px;
+        }
+        
+        .home-section nav{
+            width: calc(100% - 0px);
+            left: 240px;
+            height: 80px;
+            background: #fff;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .home-section nav .sidebar-button
+        {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 500;
+        }
+        
+        .home-section nav .sidebar-button i{
+            font-size: 40px;
+        }
+        
+        .home-section nav .search-box
+        {
+            height:50px ;
+            width: 550px;
+            margin: 0 20px;
+            position: relative;
+        }
+        
+        nav .search-box input{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border-radius: 6px;
+            padding: 0 15px;
+            font-size: 17px;
+            background: #F5F6FA;
+            border: 2px solid #EFEEF1;
+            outline: none;
+        }
+        
+        nav .search-box .bx-search
+        {
+                position: absolute;
+                right:5px;
+                top: 50%;
+                transform: translateY(-50%);
+                height: 40px;
+                width: 40px;
+                background: #2697FF;
+                border-radius: 6px;
+                color: #fff;
+                font-size: 22px;
+                line-height: 40px;
+                text-align: center;
+        }
+        
+        .home-section nav .profile-details
+        {
+            display: flex;
+            align-items: center;
+            height: 50px;
+            min-width: 100px;
+            background: #F5F6FA;
+            border: 2px solid #EFEEF1;
+            border-radius: 6px;
+            padding: 0 5px 0 2px;
+            margin-right: 8px;
+        }
+        
+        nav .profile-details ul li{
+    text-decoration: none;
+    list-style: none;
+    padding: 5px 10px;
+    position: relative;
+}
+
+nav .profile-details ul li a{
+    text-decoration: none;
+    list-style: none;
+    font-size: 17px;
+    color: black;
+}
+
+nav .profile-details .dropdown{
+    display: none;
+}
+
+nav .profile-details ul li:hover .dropdown
+{
+    display: block;
+    position: absolute;
+    left:0;
+    top:80%;
+    background-color:#2697FF;
+    border-radius: 10px;
+}
+
+nav .profile-details .dropdown ul
+{
+    display: block;
+    margin: 10px;
+}
+
+nav .profile-details .dropdown ul li 
+{
+    width: 150px;
+    padding: 10px 0 10px 0;
+}
+        
+        .home-section .home-content0
+        {
+            position: relative;
+            padding-top: 55px;
+        }
+        
+        .home-content0 .overview-boxes0
+        {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 30px;
+            flex-wrap: wrap;
+        }
+        
+        .home-content0 .overview-boxes0 .box0
+        {
+            height: 80px;
+            width: calc(90% / 3 - 10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 14px;
+            background: #0A2558;
+            border-radius: 12px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .home-content0 .overview-boxes0 .box_topic0
+        {
+            font-size: 25px;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .home-section .home-content1
+        {
+            position: relative;
+            padding-top: 50px;
+        }
+        
+        .home-content1 .overview-boxes1
+        {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 30px;
+            flex-wrap: wrap;
+        }
+        
+        .home-content1 .overview-boxes1 .box1
+        {
+            height: 80px;
+            width: calc(90% / 3 - 10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 14px;
+            background: #0A2558;
+            border-radius: 12px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .home-content1 .overview-boxes1 .box_topic1
+        {
+            font-size: 25px;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .home-section .home-content2
+        {
+            position: relative;
+            padding-top: 50px;
+        }
+        
+        .home-content2 .overview-boxes2
+        {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 30px;
+            flex-wrap: wrap;
+        }
+        
+        .home-content2 .overview-boxes2 .box2
+        {
+            height: 80px;
+            width: calc(90% / 3 - 10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 14px;
+            background: #0A2558;
+            border-radius: 12px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .home-content2 .overview-boxes2 .box_topic2
+        {
+            font-size: 25px;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .home-section .home-content3
+        {
+            position: relative;
+            padding-top: 50px;
+        }
+        
+        .home-content3 .overview-boxes3
+        {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 30px;
+            flex-wrap: wrap;
+        }
+        
+        .home-content3 .overview-boxes3 .box3
+        {
+            height:80px;
+            width: calc(90% / 3 - 10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 14px;
+            background:#0A2558;
+            border-radius: 12px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .home-content3 .overview-boxes3 .box_topic3
+        {
+            font-size: 25px;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <img src="{% static 'images/Logo.jpg' %}" alt="">
+            <span class="logo_name">AjantaPlastics</span>
+        </div>
+
+        <ul class="nav-links">
+            <li>
+                <a href="/adminpanel">
+                    <img src="{% static 'images/dashboard (1).png' %}" alt="">
+                    <span class="link_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'customershow' %}">
+                    <img src="{% static 'images/segment.png' %}" alt="">
+                    <span class="link_name">Customer</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'workshow' %}">
+                    <img src="{% static 'images/management.png' %}" alt="">
+                    <span class="link_name">Designation</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'suppliershow' %}">
+                    <img src="{% static 'images/supplier.png' %}" alt="">
+                    <span class="link_name">Supplier</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'employeeshow' %}">
+                    <img src="{% static 'images/people.png' %}" alt="">
+                    <span class="link_name">Employee</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'productshow' %}">
+                    <img src="{% static 'images/products.png' %}" alt="">
+                    <span class="link_name">Product</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'productionshow' %}">
+                    <img src="{% static 'images/manufacturing.png' %}" alt="">
+                    <span class="link_name">Production</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'ordershow' %}">
+                    <img src="{% static 'images/order.png' %}" alt="">
+                    <span class="link_name">Order</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'salesshow' %}">
+                    <img src="{% static 'images/sale.png' %}" alt="">
+                    <span class="link_name">Sales</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'purchaseshow' %}">
+                    <img src="{% static 'images/goods.png' %}" alt="">
+                    <span class="link_name">Purchase</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'stockshow' %}">
+                    <img src="{% static 'images/stock.png' %}" alt="">
+                    <span class="link_name">Stock</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'rawmaterialshow' %}">
+                    <img src="{% static 'images/raw-materials.png' %}" alt="">
+                    <span class="link_name">Raw Material</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'categoryhow' %}">
+                    <img src="{% static 'images/category (1).png' %}" alt="">
+                    <span class="link_name">Category</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'deliveryshow' %}">
+                    <img src="{% static 'images/delivery.png' %}" alt="">
+                    <span class="link_name">Delivery</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'offershow' %}">
+                    <img src="{% static 'images/discount.png' %}" alt="">
+                    <span class="link_name">Offer</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'recyclingshow' %}">
+                    <img src="{% static 'images/recycle-symbol.png' %}" alt="">
+                    <span class="link_name">Recycling</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'admin_logout' %}">
+                    <img src="{% static 'images/IMG_20240129_213839.png' %}" alt="">
+                    <span class="link_name">Log Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+            </div>
+            <!-- <form action="" class="d-flex mt-3 mt-lg-0" method="get" role="search"
+      style="width: 30%; text-align: right; margin-left: 10%; margin-top: 6%; padding-bottom: 2%;">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+      <button class="btn btn-outline-success" type="submit"><i class='bx bx-search '></i></button>
+  </form> -->
+            <form action="" method="get" role="search">
+                <div class="search-box">
+                    <input type="search" placeholder="Search" aria-label="Search" name="search"">
+                <button class=" btn btn-outline-success" type="submit"><i class='bx bx-search '></i></button>
+            </form>
+            </div>
+            <div class="profile-details">
+                <ul>
+                    <!-- <li><a href="#">{{admin_user.admin_name}} ▼</a> -->
+                    <li><a href="#">Manage Account  ▼</a>
+                        <div class="dropdown">
+                            <ul>
+                                <li><a href="/update_admin/{{admin_user.admin_id}}">Change Username Or Password</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="home-content0">
+            <div class="overview-boxes0">
+                <div class="box0">
+                    <div class="left-side0">
+                        <div class="box_topic0">Total Categories : {{category_count}}</div>
+                    </div>
+                </div>
+                <div class="box0">
+                    <div class="left-side0">
+                        <div class="box_topic0">Total Customers : {{customer_count}}</div>
+                    </div>
+                </div>
+                <div class="box0">
+                    <div class="left-side0">
+                        <div class="box_topic0">Total Employees : {{employee_count}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="home-content1">
+            <div class="overview-boxes1">
+                <div class="box1">
+                    <div class="left-side1">
+                        <div class="box_topic1">Total Offers : {{offer_count}}</div>
+                    </div>
+                </div>
+                <div class="box1">
+                    <div class="left-side1">
+                        <div class="box_topic1">Total Suppliers : {{supplier_count}}</div>
+                    </div>
+                </div>
+                <div class="box1">
+                    <div class="left-side1">
+                        <div class="box_topic1">Total Orders : {{order_count}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-content2">
+            <div class="overview-boxes2">
+                <div class="box2">
+                    <div class="left-side2">
+                        <div class="box_topic2">Total Production : {{production_count}}</div>
+                    </div>
+                </div>
+                <div class="box2">
+                    <div class="left-side2">
+                        <div class="box_topic2">Total Sales : {{sales_count}}</div>
+                    </div>
+                </div>
+                <div class="box2">
+                    <div class="left-side2">
+                        <div class="box_topic2">Total Purchase : {{purchase_count}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="home-content3">
+            <div class="overview-boxes3">
+                <div class="box3">
+                    <div class="left-side3">
+                        <div class="box_topic3">Total Deliveries : {{delivery_count}}</div>
+                    </div>
+                </div>
+                <div class="box3">
+                    <div class="left-side3">
+                        <div class="box_topic3">Total Raw Material : {{raw_count|floatformat}} KG</div>
+                    </div>
+                </div>
+                <div class="box3">
+                    <div class="left-side3">
+                        <div class="box_topic3">Total Recycling : {{recycle_count|floatformat}} KG</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

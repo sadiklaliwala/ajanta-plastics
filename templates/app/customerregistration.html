@@ -1,0 +1,149 @@
+   {% comment %} {% extends 'app/base.html' %}
+
+{% block title %}Customer Registration{% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+   <h3>Customer Registration</h3>
+   <hr>
+
+   <form action="" method="post" novalidate class="shadow p-5">
+    <div class="mb-3">
+     <label for="inputEmail4" class="form-label">Email</label>
+     <input type="email" class="form-control" id="inputEmail4">
+     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+     <label for="inputPassword1" class="form-label">Password</label>
+     <input type="password" class="form-control" id="inputPassword1">
+    </div>
+    <div class="mb-3">
+     <label for="inputPassword2" class="form-label">Confirm Password</label>
+     <input type="password" class="form-control" id="inputPassword2">
+    </div>
+    <div class="text-end">
+     <button type="button" class="btn btn-danger">Submit</button>
+    </div>
+    <br>
+    <div class="text-center text-primary fw-bold"><small>Existing User ? <a href="{% url 'login' %}"
+       class="text-danger">Login Now</a> </small></div>
+    {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+    <p class="alert alert-danger my-3">{{error}}</p>
+    {% endfor %}
+    {% endif %}
+   </form>
+  </div>
+ </div>
+</div>
+{% endblock main-content %} {% endcomment %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'registration.css'%}">
+   <!--<link rel="stylesheet" href="{% static 'reg.js'%}">-->
+   <script type="text/javascript">
+    function validateform()
+    {
+        var fname= document.getElementById("customerfname");
+        var lname=document.getElementById("customerlname");
+        var email=document.getElementById("emailid");
+        var num=document.getElementById("number");
+		var pin=document.getElementById("pincode");
+        if (fname.value=="") 
+        {
+            alert(" First name cannot accept blank value");
+            return false;
+        }
+        
+        if (lname.value=="")
+        {
+            alert("Last name cannot accept blank value");
+            return false;
+        }
+        if (email.value=="")
+        {
+            alert("Enter email in form of xyz@gmail.com");
+        } 
+       /* if (num.value!=10)
+        {
+            alert("enter 10 digit mobile number");
+        }*/
+        /*if (pin.value!=6)
+		 {
+            alert("Enter 6 digit pincode number");
+			return false;
+        }*/
+        else{
+            return true;
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title"> Customer Registration</div>
+        <form method="POST" name="myForm" id ="myForm" onsubmit="return validateform()" >
+         {% csrf_token %}
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">First Name</span>
+                    <input type="text"  id="customerfname" name="customerfname"placeholder="Enter Your First Name"required >
+                </div>
+                <div class="input-box">
+                    <span class="details">Last Name</span>
+                    <input type="text" id="customerlname" name="customerlname"placeholder="Enter Your Last Name">
+                </div>
+                <div class="input-box">
+                    <span class="details">Birth Date</span>
+                    <input type="date" name="customerdob"placeholder="Enter Your Birth Date" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Mobile Number</span>
+                    <input type="number" id="number" name="number"placeholder="Enter Your Mobile Number" required >
+                </div>
+                <div class="input-box">
+                    <span class="details">Address</span>
+                    <input type="text" name="address" placeholder="Enter Your Address" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Pincode</span>
+                    <input type="number" id="pincode" name="pincode" placeholder="Enter Pincode" >
+                </div>
+                <div class="input-box">
+                    <span class="details">E-Mail</span>
+                    <input type="email" name="emailid" id="emailid" placeholder=" Enter email" >
+                </div>
+                <div class="input-box">
+                    <span class="details">Password</span>
+                    <input type="text" name="password" placeholder="Enter Password" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Gender</span>
+                    <br>
+                    <select name="gender">
+                        
+                        <option value="male">Male</option>
+                        <option value="Female">FeMale</option>
+                        
+                    </select><br>
+                </div>
+
+            </div>
+            <div class="button">
+                <input type="submit" value="Register">
+            </div>
+            <div class="instruct">
+                Already Have An Account? <a href="/login">Login Now</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
